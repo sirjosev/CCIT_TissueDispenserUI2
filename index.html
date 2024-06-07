@@ -1,14 +1,55 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <title>Status Tissue Dispenser IoT</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .tissue-list {
+            cursor: pointer; /* Membuat list bisa diklik */
+        }
+    </style>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <div class="container">
+        <h2>Status Tissue Dispenser IoT</h2>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Tissue Habis</h3>
+                <ul class="list-group" id="tissueHabisList">
+                    </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Tissue Belum Habis</h3>
+                <ul class="list-group" id="tissueBelumHabisList">
+                    </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Contoh data (ganti dengan data asli dari perangkat IoT Anda)
+        const tissueData = [
+            { id: 1, status: "habis" },
+            { id: 2, status: "belum habis" },
+            { id: 3, status: "habis" }
+        ];
+
+        // Fungsi untuk menambahkan list item
+        function addListItem(item) {
+            const listItem = `<li class="list-group-item tissue-list" data-id="${item.id}">Tissue Dispenser ${item.id}</li>`;
+            if (item.status === "habis") {
+                $("#tissueHabisList").append(listItem);
+            } else {
+                $("#tissueBelumHabisList").append(listItem);
+            }
+        }
+
+        // Menambahkan list item berdasarkan data
+        tissueData.forEach(addListItem);
+    </script>
 </body>
 </html>
