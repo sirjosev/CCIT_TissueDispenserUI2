@@ -1,1 +1,35 @@
-/* Add styles here */
+/* Add styles for a more colorful and attractive website */
+body {
+    background-color: #f5f5f5;
+}
+
+h2 {
+    color: #333;
+}
+
+.list-group-item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.list-group-item:hover {
+    background-color: #f5f5f5;
+}
+
+/* Add styles for responsiveness */
+@media (max-width: 768px) {
+    .col-md-6 {
+        width: 100%;
+    }
+}
+
+/* Add animation for click events on list items */
+.tissue-list {
+    transition: all 0.3s ease-in-out;
+}
+
+.tissue-list:hover {
+    transform: scale(1.1);
+}
+
