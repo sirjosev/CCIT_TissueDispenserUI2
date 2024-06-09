@@ -35,25 +35,41 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // Contoh data (ganti dengan data asli dari perangkat IoT Anda)
-        const tissueData = [
-            { id: 1, status: "habis" },
-            { id: 2, status: "belum habis" },
-            { id: 3, status: "habis" }
-        ];
+        // ... (Firebase initialization)
 
-        // Fungsi untuk menambahkan list item
-        function addListItem(item) {
-            const listItem = `<li class="list-group-item tissue-list" data-id="${item.id}">Tissue Dispenser ${item.id}</li>`;
-            if (item.status === "habis") {
-                $("#tissueHabisList").append(listItem);
-            } else {
-                $("#tissueBelumHabisList").append(listItem);
-            }
+        // Referensi ke koleksi tissue dispenser di Firestore
+        const tissueCollection = firebase.firestore().collection("tissue_dispensers");
+
+        // Fungsi untuk memperbarui daftar tissue
+        function updateTissueList(snapshot) {
+            $("#tissueHabisList").empty();
+            $("#tissueBelumHabisList").empty();
+
+            snapshot.forEach(doc => {
+                const tissue = doc.data();
+
+                // Format tanggal
+                const lastUpdate = tissue.last_update ? tissue.last_update.toDate().toLocaleString() : "N/A";
+
+                // Membuat list item dengan informasi nama perangkat dan waktu update
+                const listItem = `
+                    <li class="list-group-item tissue-list d-flex justify-content-between align-items-center" data-id="${tissue.id}">
+                        <span>Tissue Dispenser ${tissue.id}</span>
+                        <small class="text-muted">${lastUpdate}</small>
+                    </li>
+                `;
+
+                if (tissue.status === "habis") {
+                    $("#tissueHabisList").append(listItem);
+                } else {
+                    $("#tissueBelumHabisList").append(listItem);
+                }
+            });
         }
 
-        // Menambahkan list item berdasarkan data
-        tissueData.forEach(addListItem);
+        // Mendengarkan perubahan pada koleksi tissue dispenser
+        tissueCollection.onSnapshot(updateTissueList);
+
     </script>
     <script src="main.js"></script>
 
