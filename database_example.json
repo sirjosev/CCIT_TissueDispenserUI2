@@ -1,0 +1,20 @@
+Root Collection: 
+- tissue_dispensers (Collection) 
+    - Lt1A01 (Document)   
+        - id: 1 (Number) 
+        - status: "habis" (String) 
+        - location: "Toilet lobby" (String) // Opsional, untuk informasi lokasi 
+        - last_update: June 9, 2024 at 11:13:09 PM UTC+7 (Timestamp) // Opsional, untuk waktu terakhir update
+        - sensor_distance: 3 (Number) 
+    - Lt2A01 (Document) 
+        - id: 2 (Number) 
+        - status: "belum habis" (String) 
+        - location: "Toilet lantai 2 utara" (String) // Opsional 
+        - last_update: June 10, 2024 at 12:08:14 AM UTC+7 (Timestamp) // Opsional 
+        - sensor_distance: 20 (Number)
+    - Lt2B01 (Document) 
+        - id: 3 (Number) 
+        - status: "habis" (String) 
+        - location: "Toilet lantai 2 selatan" (String) // Opsional 
+        - last_update: June 10, 2024 at 12:11:49 AM UTC+7 (Timestamp) // Opsional
+        - sensor_distance: 5 (Number)
