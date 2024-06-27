@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tes Koneksi Firestore</title>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    // TODO: Ganti dengan konfigurasi Firebase project Anda
+    const firebaseConfig = {
+      apiKey: "AIzaSyAHmmL55lQfhOBOtZkq1z5F37n5Qw2q7oI",
+      authDomain: "tissue-dispenser-fe5fc.firebaseapp.com",
+      databaseURL: "https://tissue-dispenser-fe5fc-default-rtdb.firebaseio.com",
+      projectId: "tissue-dispenser-fe5fc",
+      storageBucket: "tissue-dispenser-fe5fc.appspot.com",
+      messagingSenderId: "381360546549",
+      appId: "1:381360546549:web:b09065d3b9bb601134dbbc",
+      measurementId: "G-TD2TXWNDDQ"
+    };
+
+    // Inisialisasi Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Fungsi untuk mengambil dan menampilkan data buku
+    async function getBooks() {
+      try {
+        const snapshot = await db.collection('tissue_dispensers').get();
+       // const bookData = document.getElementById('bookData');
+       // bookData.innerHTML = ''; // Hapus data sebelumnya
+
+        snapshot.docs.forEach(doc => {
+        	console.log(doc.data());
+         // const book = doc.data();
+         // const listItem = document.createElement('li');
+         // listItem.textContent = `${book.title} oleh ${book.author}`;
+         // bookData.appendChild(listItem);
+        });
+      } catch (error) {
+        console.error("Error mengambil data:", error);
+        bookData.innerHTML = 'Gagal memuat data buku';
+      }
+    }
+
+    // Panggil fungsi saat halaman dimuat
+    window.onload = getBooks;
+  </script>
+</head>
+<body>
+  <h1>Data Buku dari Firestore</h1>
+  <ul id="bookData"></ul>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>Tissue Dispenser</title>
+<!-- Suggested code may be subject to a license. Learn more: ~LicenseLog:4171710211. -->
+        <meta charset="utf-8">
+<!-- Suggested code may be subject to a license. Learn more: ~LicenseLog:3895233582. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Suggested code may be subject to a license. Learn more: ~LicenseLog:2703771491. -->
+        <link rel="stylesheet" href="public/bootstrap/album/index.html">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="public/bootstrap/album/index.html"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    </head>
+    <body>
+        <h1 class="text-center">Lagi Dibuat</h1>
+    </body>
+</html>

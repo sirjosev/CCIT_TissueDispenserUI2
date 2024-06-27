@@ -1,78 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Status Tissue Dispenser IoT</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-
-
-    <style>
-        .tissue-list {
-            cursor: pointer; /* Membuat list bisa diklik */
-        }
-    </style>
-    
-</head>
-<body>
-    <div class="container">
-        <h2>Status Tissue Dispenser IoT</h2>
-
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Tissue Habis</h3>
-                <ul class="list-group" id="tissueHabisList">
-                    </ul>
-            </div>
-            <div class="col-md-6">
-                <h3>Tissue Belum Habis</h3>
-                <ul class="list-group" id="tissueBelumHabisList">
-                    </ul>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        // ... (Firebase initialization)
-
-        // Referensi ke koleksi tissue dispenser di Firestore
-        const tissueCollection = firebase.firestore().collection("tissue_dispensers");
-
-        // Fungsi untuk memperbarui daftar tissue
-        function updateTissueList(snapshot) {
-            $("#tissueHabisList").empty();
-            $("#tissueBelumHabisList").empty();
-
-            snapshot.forEach(doc => {
-                const tissue = doc.data();
-
-                // Format tanggal
-                const lastUpdate = tissue.last_update ? tissue.last_update.toDate().toLocaleString() : "N/A";
-
-                // Membuat list item dengan informasi nama perangkat dan waktu update
-                const listItem = `
-                    <li class="list-group-item tissue-list d-flex justify-content-between align-items-center" data-id="${tissue.id}">
-                        <span>Tissue Dispenser ${tissue.id}</span>
-                        <small class="text-muted">${lastUpdate}</small>
-                    </li>
-                `;
-
-                if (tissue.status === "habis") {
-                    $("#tissueHabisList").append(listItem);
-                } else {
-                    $("#tissueBelumHabisList").append(listItem);
-                }
-            });
-        }
-
-        // Mendengarkan perubahan pada koleksi tissue dispenser
-        tissueCollection.onSnapshot(updateTissueList);
-
-    </script>
-    <script src="main.js"></script>
-
-
-</body>
-</html>
+<script>
+    // Di dalam tag <script> di index.html
+    var a = 1;
+    if (a = 0/* kondisi untuk memeriksa apakah pengguna sudah login */) {
+    // Jika sudah login, biarkan halaman utama ditampilkan
+    } else {
+    // Jika belum login, arahkan ke halaman login
+    window.location.href = "public/bootstrap/album/index.html"; 
+    }
+</script>
