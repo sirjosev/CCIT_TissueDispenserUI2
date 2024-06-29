@@ -94,7 +94,11 @@
       }
     </style>
 
-    
+    <!-- firebase cdn katanya-->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+
   </head>
   
   <body>
@@ -277,14 +281,15 @@
       </div>
     </footer>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
+    <script type="module">
       // Import the functions you need from the SDKs you need
-      import { initializeApp } from "firebase/app";
-      import { getAnalytics } from "firebase/analytics";
+      // import { initializeApp } from "firebase/app";
+      // import { getAnalytics } from "firebase/analytics"; //karna menggunakan cdn alias nambahin source firestore diatas maka ini di comment
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
 
-      import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
+      //ini juga di comment karna menggunakan cdn alias nambahin source firestore diatas maka ini di comment karena udah ada cdn
+      // import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore'; 
 
       // Your web app's Firebase configuration
       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
